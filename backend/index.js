@@ -13,13 +13,13 @@ connectDb();
 
 //middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser()); 
-const port = 3000;
+const port = process.env.PORT || 3000;;
 
 //api's
 app.get("/", (req, res) => {
